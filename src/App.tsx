@@ -10,7 +10,7 @@ function App() {
             <PageTitle title={"My first ReactTS application"}/>
             <PageTitle title={"This is APP component"}/>
             Article 1
-            <Rating value={3}/>
+            <Rating value={5}/>
             <Accordion title={"Menu"} collapsed={true}/>
             <Accordion title={"Users"} collapsed={false}/>
             Article 2
