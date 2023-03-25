@@ -22,7 +22,7 @@ function App() {
             <Accordion title={"Menu"} collapsed={true}/>
             <Accordion title={"Users"} collapsed={false}/>
             Article 2
-            <Rating value={rating} onStarClick={(value)=>setRating(value)}/>
+            <Rating value={rating} onStarClick={setRating}/>
             <UncontrolledRating />
         </div>
     );
