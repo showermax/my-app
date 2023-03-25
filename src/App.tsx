@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./Component/Accordion/Accordion";
 import {Rating} from "./Component/Rating/Rating";
+import {Onoff} from "./Component/OnOff/Onoff";
 
 function App() {
-    console.log("App rendering")
+    const [darkmode, setDarkMode] = useState(false)
+    const darkmodeSwitcher =()=>{
+        setDarkMode(!darkmode)
+    }
     return (
-        <div>
+        <div className={darkmode ? 'dark' : ''}>
+            <Onoff switcher={darkmodeSwitcher} mode={darkmode}/>
             <PageTitle title={"My first ReactTS application"}/>
             <PageTitle title={"This is APP component"}/>
             Article 1

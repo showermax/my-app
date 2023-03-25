@@ -1,7 +1,10 @@
 .App {
   text-align: center;
 }
-
+.dark {
+  color: white;
+  background: black;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +39,68 @@
     transform: rotate(360deg);
   }
 }
+
+/*Toggler*/
+.toggler {
+  display: flex;
+  align-items: center;
+}
+
+.toggler p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.toggler--slider {
+  width: 40px;
+  height: 23px;
+  background-color: #2B283A;
+  border-radius: 2rem;
+  margin-inline: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+  box-sizing: content-box;
+}
+
+.dark .toggler--slider {
+  border-color: white;
+  background-color: #F5F5F5;
+}
+
+.toggler--slider--circle {
+  height: 23px;
+  width: 23px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.dark .toggler--slider--circle {
+  background-color: black;
+}
+
+.toggler--light {
+  color: #2B283A;
+
+}
+
+.dark .toggler--light {
+  color: #918E9B;
+}
+
+.toggler--dark {
+  color: #D5D4D8;
+
+}
+
+.dark .toggler-dark {
+  color: #FFFFFF;
+}
+
+.dark .toggler--slider {
+  justify-content: flex-end;
+}
+
+/*toggler end*/
