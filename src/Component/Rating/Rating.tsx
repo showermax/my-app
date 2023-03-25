@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 type RatingPropsType = {
     value: number
@@ -90,9 +90,9 @@ type StarPropsType = {
     selected: boolean
 }
 const Star = (props: StarPropsType) => {
-    if (props.selected === true)
-        return (
-            <span> <b>star </b> </span>
-        )
-    else return <span>star </span>
+    return (
+        <span>
+        {props.selected ?  <b>star</b>  : 'star'  }
+        </span>
+    )
 }
