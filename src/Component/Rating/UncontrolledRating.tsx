@@ -10,7 +10,7 @@ export function UncontrolledRating() {
             <div onClick={()=>setRating(1)}><Star selected={rating > 0}/></div>
             <div onClick={()=>setRating(2)}><Star selected={rating > 1}/></div>
             <div onClick={()=>setRating(3)}><Star selected={rating > 2}/></div>
-            <div onClick={()=>setRating(4)}><Star selected={rating > 3}/></div>
+            <div onСlick={()=>setRating(4)}><Star selected={rating > 3}/></div>
             <div onClick={()=>setRating(5)}><Star selected={rating > 4}/></div>
             <button onClick={()=>setRating(0)}>Х</button>
         </div>
