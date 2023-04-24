@@ -12,6 +12,7 @@ const initialState = [
     {id: 4, name: 'Nik', status: 'ready'}
 ]
 export const UsersReducer = (state: UserType[] = initialState, action: any) => {
+    console.log(...state)
         switch (action.type) {
             case 'CHANGE-NAME': return state.map(el=>el.id===action.payload.id ? {...el,name: action.payload.newname}:el)
             default: return state

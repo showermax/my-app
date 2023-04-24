@@ -1,35 +1,40 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 
 type EditableSpanPropsType = {
-    initialcontent:string
+    content:string
+    changeSpan: (content:string)=>void
 }
 export const EditableSpan = (props:EditableSpanPropsType) => {
 
     const [edit, setEdit] = useState(false)
-    const [content, setContent] = useState(props.initialcontent)
-    const [previousContent, setPreviousContent] = useState(content)
+    const [inputValue, setInputValue] = useState(props.content)
+    const [previousContent, setPreviousContent] = useState(inputValue)
 
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setContent(e.currentTarget.value)
+        setInputValue(e.currentTarget.value)
     }
     const AcceptChangesHandler = () => {
         setEdit(false)
-        if (!content) setContent(previousContent)
+        props.changeSpan(inputValue)
+        if (!inputValue) props.changeSpan(previousContent)
     }
     const AcceptChangesByEnterHandler = (key: KeyboardEvent<HTMLInputElement>) => {
-        if (key.key === "Enter") setEdit(false)
+        if (key.key === "Enter") {
+            setEdit(false)
+            props.changeSpan(inputValue)
+        }
     }
     const SpanClickHandler = () => {
         setEdit(true)
-        setPreviousContent(content)
+        setPreviousContent(inputValue)
     }
     return (
         <>
             {edit ?
-                <input value={content} onChange={inputChangeHandler} onBlur={AcceptChangesHandler}
+                <input value={inputValue} onChange={inputChangeHandler} onBlur={AcceptChangesHandler}
                        onKeyDown={AcceptChangesByEnterHandler} autoFocus/>
                 :
-                <span onDoubleClick={SpanClickHandler}>{content}</span>
+                <span onDoubleClick={SpanClickHandler}>{props.content}</span>
             }
 
         </>
