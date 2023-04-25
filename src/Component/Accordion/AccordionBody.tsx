@@ -2,7 +2,7 @@ import {EditableSpan} from "../Generic/EditableSpan";
 import React from "react";
 import {useAppSelector} from "../../Redux/Hooks/hooks";
 import {useDispatch} from 'react-redux'
-import {changeNameAC} from "../../Reducers/UsersReducer";
+import {changeNameAC, changeStatusAC} from "../../Reducers/UsersReducer";
 import {MySelect} from "../Generic/MySelect";
 
 export const AccordionBody = () => {
@@ -11,13 +11,18 @@ export const AccordionBody = () => {
     const changeSpan = (id: number, content: string) => {
         dispatch(changeNameAC(id, content))
     }
+    const toSelect =(id: number, status: string)=>{
+        dispatch(changeStatusAC(id, status))
+    }
     return (
         <>
             <ul>
-                {users.map(el => <li key={el.id}>
+                {users.map(el => <li style={{display:'flex', gap: ' 10px'}} key={el.id}>
                     <EditableSpan content={el.name}
                                   changeSpan={(content) => changeSpan(el.id, content)}/>
-                    <MySelect items={users.map(el => el.status)} head={'Choose status'}/>
+                    <MySelect items={['ready','almost ready','changed his/her mind']}
+                              head={el.status}
+                    toSelect={(status)=>toSelect(el.id,status)}/>
                 </li>)}
             </ul>
         </>

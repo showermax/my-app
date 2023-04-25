@@ -3,7 +3,7 @@ import React from 'react';
 export type UserType = {
     id: number
     name: string
-    status: 'ready'|'almost ready'| 'changed his/her mind'|string
+    status: string
 }
 
 const initialState = [
@@ -12,10 +12,10 @@ const initialState = [
     {id: 3, name: 'Danik', status: 'ready'},
     {id: 4, name: 'Nik', status: 'ready'}
 ]
-export const UsersReducer = (state: UserType[] = initialState, action: any) => {
+export const UsersReducer = (state: UserType[] = initialState, action: ActionType) => {
         switch (action.type) {
             case 'CHANGE-NAME': return state.map(el=>el.id===action.payload.id ? {...el,name: action.payload.newname}:el)
-            case 'CHANGE-STATUS': return state.map(el=>el.id===action.payload.id ? {...el,status: action.payload.status}:el)
+            case 'CHANGE-STATUS': return state.map(el=>el.id===action.payload.id ? {...el,status: action.payload.newstatus}:el)
             default: return state
         }
 
