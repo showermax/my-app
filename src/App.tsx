@@ -4,6 +4,8 @@ import {Accordion} from "./Component/Accordion/Accordion";
 import {Rating} from "./Component/Rating/Rating";
 import {Onoff} from "./Component/OnOff/Onoff";
 import {UncontrolledRating} from "./Component/Rating/UncontrolledRating";
+import {MemoTestStories} from "./Component/MemoTest/MemoTestStories";
+import MutablityTest from "./MutablityTest";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             Article 2
             <Rating value={rating} onStarClick={setRating}/>
             <UncontrolledRating />
+            <MemoTestStories />
+            <MutablityTest />
         </div>
     );
 }
