@@ -8,7 +8,8 @@ export const UseStateTest = () => {
     const [c,setC]=useState(0)
     return <>
 
-        <button onClick={()=>setC(c+1)}>the value of the counter: </button>
+        <button onClick={()=>setC(c+1)}> increase </button>
+
         <span>{c}</span>
     </>
 }
