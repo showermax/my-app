@@ -6,6 +6,7 @@ import {Onoff} from "./Component/OnOff/Onoff";
 import {UncontrolledRating} from "./Component/Rating/UncontrolledRating";
 import {MemoTestStories} from "./Component/Optimization Tests/MemoTestStories";
 import MutablityTest from "./Component/Optimization Tests/MutablityTest";
+import {UseEffectTest} from "./Component/Optimization Tests/UseEffect.stories";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <UncontrolledRating />
             <MemoTestStories />
             <MutablityTest />
+            <UseEffectTest />
         </div>
     );
 }

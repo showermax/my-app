@@ -14,9 +14,7 @@ export const UseStateTest = () => {
     const [c,setC]=useState(init)
 
     return <>
-
-        <button onClick={()=>setC(c+1)}> increase </button>
-
+        <button onClick={()=>setC((state:number)=>state+1)}> increase </button>
         <span>{c}</span>
     </>
 }
