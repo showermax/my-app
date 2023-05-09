@@ -1,11 +1,11 @@
-import React, {ChangeEvent, useMemo, useState} from "react";
+import React, {ChangeEvent, useCallback, useMemo, useState} from "react";
 
 export function MemoTestStories() {
     const [difference, setDifference] = useState(0)
     const [ratio, setRatio] = useState(0)
+    const [arrayArithmetic,setArrayArithmetic] = useState<number[]>([])
     let resultArithmetic = 0
     let resultGeometric = 1
-
     const arithmetic = () => {
         for (let i = 0; i < 10; i++) {
             resultArithmetic = resultArithmetic + difference
@@ -23,6 +23,18 @@ export function MemoTestStories() {
         } return resultGeometric
     }
     useMemo(geometric, [ratio])
+    let element =0
+    let array=[...arrayArithmetic]
+    useMemo(()=>setArrayArithmetic([]),[difference])
+    const makeTheArrayArithmetic = () => {
+             for (let i = 0; i <10; i++) {
+             array = [...array,element]
+            element = element + difference
+        }
+        setArrayArithmetic(array)
+        console.log(array)
+    }
+    console.log(arrayArithmetic)
     return (
         <div>
             <div>
@@ -31,6 +43,8 @@ export function MemoTestStories() {
                        onChange={(e: ChangeEvent<HTMLInputElement>) => setDifference(+e.currentTarget.value)}/>
                 <div>Sum:</div>
                 <div>{arithmetic()}</div>
+                <button onClick={makeTheArrayArithmetic}> Show me progression </button>
+                <MemoProgression array={arrayArithmetic}/>
             </div>
             <div>
                 <div>Set the ratio for geometrics progression</div>
@@ -40,7 +54,7 @@ export function MemoTestStories() {
             </div>
 
 
-            {/*<MemoProgression array={array}/>*/}
+
             {/*<InputValue value={difference}/>*/}
         </div>
     );
@@ -49,7 +63,7 @@ export function MemoTestStories() {
 
 const Progression = (props: { array: Array<number> }) => {
     console.log('hi')
-    return <div>{props.array.map(el => <span> {el} </span>)}</div>
+    return (props.array.length>0) ? <div>{props.array.map(el => <span> {el} </span>)}</div> : <div></div>
 }
 const MemoProgression = React.memo(Progression)
 
