@@ -4,8 +4,8 @@ import {Accordion} from "./Component/Accordion/Accordion";
 import {Rating} from "./Component/Rating/Rating";
 import {Onoff} from "./Component/OnOff/Onoff";
 import {UncontrolledRating} from "./Component/Rating/UncontrolledRating";
-import {MemoTestStories} from "./Component/MemoTest/MemoTestStories";
-import MutablityTest from "./MutablityTest";
+import {MemoTestStories} from "./Component/Optimization Tests/MemoTestStories";
+import MutablityTest from "./Component/Optimization Tests/MutablityTest";
 
 
 function App() {
