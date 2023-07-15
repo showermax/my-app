@@ -13,7 +13,6 @@ const MutablityTest = () => {
         setArr2([...arr2,'d'])
     }
 
-    console.log('rendered')
     console.log(arr1)
     console.log(arr2)
     return (
